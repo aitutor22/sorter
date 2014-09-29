@@ -1,13 +1,12 @@
 'use strict';
 
 var _ = require('lodash'),
-  Strategy = require('./strategy'),
+  SortStrategies = require('./sort_strategies'),
   ComputeTime = require('./computetime');
 
 //main sorter object that uses different sorting algorithm based on the Strategy Pattern
 function Sorter(arr) {
   this.unsortedArr = arr;
-  this.sortedArr;
   this.sortStrategy;
 }
 
@@ -41,8 +40,8 @@ sortedTestArr = (testArr.slice()).sort(function(a, b) {
 var result = {};
 var sorter = new Sorter(testArr);
 
-for (var strategy in Strategy) {
-  sorter.setSortStrategy(new Strategy[strategy]);
+for (var strategy in SortStrategies) {
+  sorter.setSortStrategy(new SortStrategies[strategy]);
   console.log(strategy)
   result[strategy] = ComputeTime.computeTime(sorter.sort, sorter, 10);
 };
