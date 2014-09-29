@@ -16,7 +16,7 @@ exports.computeTime = function(fn, context, numberOfAttempts) {
 
   function computeTimeHelper(fn, context) {
     //arguments to be passed to fn
-    var args = Array.prototype.slice.call(arguments, 1);
+    var args = Array.prototype.slice.call(arguments, 2);
 
     //need to convert to miliseconds as Date objects do string concatenation when using the + operator
     var startTime = new Date().getTime();
