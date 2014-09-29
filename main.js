@@ -43,6 +43,7 @@ var sorter = new Sorter(testArr);
 
 for (var strategy in Strategy) {
   sorter.setSortStrategy(new Strategy[strategy]);
+  console.log(strategy)
   result[strategy] = ComputeTime.computeTime(sorter.sort, sorter, 10);
 };
 
